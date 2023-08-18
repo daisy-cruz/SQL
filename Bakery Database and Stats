@@ -1,0 +1,40 @@
+/* Create a grocery store / business database 
+Business: Daisy's Bakery
+Menu:
+Cookies - Chocolate Chip, Oatmeal, Oatmeal Raisin, Butter
+Cup Cakes - Red Velvet, Vanilla, Chocolate, Cookies & Cream
+Donuts - Glazed, Sprinkles, Powdered
+Coffee - Espresso, Latte, Macchiato, Americano */
+
+CREATE TABLE Bakery (id INTEGER PRIMARY KEY, category TEXT, item_name TEXT, sold INTEGER, price INTEGER);
+
+INSERT INTO Bakery VALUES (1, "Cookie", "Chocolate Chip",15, 4);
+INSERT INTO Bakery VALUES (2, "Cookie", "Oatmeal", 6, 3);
+INSERT INTO Bakery VALUES (3, "Cookie", "Oatmeal Raisin", 6,  4);
+INSERT INTO Bakery VALUES (4, "Cookie", "Butter", 3, 4);
+INSERT INTO Bakery VALUES (5, "Cupcake", "Red Velvet", 8,  8);
+INSERT INTO Bakery VALUES (6, "Cupcake", "Vanilla", 2, 6);
+INSERT INTO Bakery VALUES (7, "Cupcake", "Chocolate", 2, 6);
+INSERT INTO Bakery VALUES (8, "Cupcake", "Cookies & Cream", 9, 10);
+INSERT INTO Bakery VALUES (9, "Donutes", "Glazed", 10,  6);
+INSERT INTO Bakery VALUES (10, "Donutes", "Sprinkles", 6,  6);
+INSERT INTO Bakery VALUES (11, "Donutes", "Powdered", 4,  7);
+INSERT INTO Bakery VALUES (12, "Coffee", "Espresso", 10, 6);
+INSERT INTO Bakery VALUES (13, "Coffee", "Latte", 5, 4);
+INSERT INTO Bakery VALUES (14, "Coffee", "Americano", 4, 3);
+INSERT INTO Bakery VALUES (15, "Coffee", "Macchiato", 8,  5);
+
+SELECT * FROM Bakery;
+/* Displays the completed table */
+
+/* What is the best selling item on the menu? */
+SELECT * FROM Bakery ORDER BY sold DESC;
+/* Displays the menu items in descending order of how many have been sold. From the query, we can see that our top selling item is Chocolate Chip Cookies. */
+
+/* Which menu category is the most expensive? */
+SELECT category FROM Bakery GROUP BY price;
+/* Displays the menu categories by most expensive. From the query, we can see that Coffee is the most expensive category in the Bakery. */
+
+/* What is the average price of all menu items in the bakery? */
+SELECT AVG(price) "avg item price" FROM Bakery 
+/* From the query, the average price for all items in the Bakery is $5.46 */
